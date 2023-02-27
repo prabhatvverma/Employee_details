@@ -8,8 +8,11 @@ const EmployeeControllers = require("../controllers/EmployeeControllers");
 router.get('/', EmployeeControllers.index);
 
 router.get('/create', EmployeeControllers.create);
+
+router.post('/store', EmployeeControllers.store);
+
  
-router.get('/employeedata', EmployeeControllers.employeedata);
+router.get('/login', EmployeeControllers.login);
  
 
 module.exports = router;

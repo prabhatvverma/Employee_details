@@ -44,29 +44,7 @@ var con = require('./config/db');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.post('/', function (req, res) {
-  var uuid = req.body.uuid;
-  var first_name = req.body.first_name;
-  var last_name = req.body.last_name;
-  var father_name = req.body.father_name;
-  var email = req.body.email;
-  var phone_no = req.body.phone_no;
-  var gender = req.body.gender;
-  var state = req.body.state;
-  var district = req.body.district;
 
-
-  connection.connect(function (err) {
-    if (err) throw err;
-
-    var sql = "INSERT INTO employees(uuid, first_name, last_name,father_name,phone_no,email,gender,state,district) VALUES('" + uuid + "','" + first_name + "','" + last_name + "','" + father_name + "', '" + email + "', '" + phone_no + "' ,'"+gender+"','" + state + "', '" + district + "')";
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      res.send('student registred '+result.insertId);
-    })
-  });
-
-})
 
 module.exports = app;
 
